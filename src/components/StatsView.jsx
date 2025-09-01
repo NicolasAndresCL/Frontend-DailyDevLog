@@ -8,24 +8,11 @@ import { styled } from '@/stitches.config'
 import 'chart.js/auto'
 import { SectionTitle } from '@/ui/SectionTitle'
 
-
-// const SectionTitle = styled('h2', {
-//   color: '$textSecondary',
-//   fontSize: '$xl',
-//   marginBottom: '$md',
-//   fontFamily: '$mono',
-//   letterSpacing: '-0.5px',
-// })
-
 const ChartWrapper = styled('div', {
-  // maxHeight: '600px',
   overflowY: 'auto',
   paddingRight: '$sm',
   width: '96%',
-  // boxSizing: 'border-box',
   padding: '$lg',
-
-  
 })
 
 const API_URL = 'http://localhost:8000/api/dailylog/'
@@ -41,9 +28,9 @@ export function StatsView() {
 
   async function fetchStats() {
     try {
-      const res = await fetch(`${API_URL}?ordering=fecha_creacion`)
+      const res = await fetch(`${API_URL}?ordering=-fecha_creacion`)
       const data = await res.json()
-      const logs = data.results || []
+      const logs = data.results?.slice(0, 20) || [] // ✅ solo las 20 más recientes
 
       if (!logs.length) {
         setError('No hay datos disponibles.')
