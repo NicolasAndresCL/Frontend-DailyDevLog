@@ -1,12 +1,61 @@
-# React + Vite
+📘 README.md — DailyDevLog Frontend
+markdown
+# 🧠 DailyDevLog — Frontend Técnico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend modular para registrar, visualizar y exportar tareas diarias de desarrollo. Diseñado con estética tipo VSCode Dark+, arquitectura escalable y componentes reutilizables.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Registro de tareas con campos técnicos
+- Historial visual con paginación y exportación Markdown
+- Estadísticas por franja horaria y tecnologías más usadas
+- Vista previa de archivos Markdown
+- Interfaz visual con tokens semánticos y layout profesional
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧱 Project Structure
+
+src/ ├── components/ # Vistas funcionales (TaskForm, HistoryView, StatsView, ExportView) ├── pages/ # Página principal (Home.jsx) ├── ui/ # Componentes visuales reutilizables (Card, Button, Section, etc.) ├── utils/ # Funciones técnicas (stats, exportToMarkdown, fileUtils) ├── assets/ # Íconos y recursos visuales ├── stitches.config.js # Configuración visual con tokens y theming ├── main.jsx # Entrada principal └── index.html # HTML base
+
+Código
+
+---
+
+## 🎨 Technologies Used
+
+React, Radix Themes, Stitches, Vite, Chart.js, Markdown, JavaScript, JSX, CSS
+
+---
+
+## 📦 Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+## 📈 Avances técnicos
+✅ Migración visual completa de TailwindCSS a Radix Themes + Stitches
+
+✅ Refactor modular con tokens semánticos y tipografía técnica
+
+✅ Automatización de exportación Markdown
+
+✅ Paginación funcional en historial
+
+✅ Scroll técnico con estilo VSCode
+
+✅ Layout flexible con FullWidthContainer y Section
+
+## 📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## 👨‍💻 Author
+Nicolás Andrés Cano Leal Frontend & Backend Developer 📍 Rancagua, Chile 🔗 LinkedIn 🔗 GitHub
+
