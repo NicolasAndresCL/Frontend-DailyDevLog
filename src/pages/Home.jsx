@@ -7,6 +7,7 @@ import { styled } from '@/stitches.config'
 import { DashboardTitle } from '@/ui/DashboardTitle'
 import { TabLabel } from '@/ui/TabLabel'
 import { FooterCard } from '@/components/FooterCard'
+import { Icons } from '@/ui/icons'
 
 const Container = styled('div', {
   backgroundColor: '$background',
@@ -15,44 +16,55 @@ const Container = styled('div', {
   minHeight: '100vh',
   width: '100%',
   padding: '$lg',
-  display: 'flex',           // 👈 necesario para que alignItems funcione
+  display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
 })
+
 const StyledTabsList = styled(TabsList, {
   display: 'flex',
-  justifyContent: 'center',  // 👈 centra los triggers
+  justifyContent: 'center',
   gap: '$md',
   marginBottom: '$lg',
 })
 
-// const TabLabel = styled('span', {
-//   display: 'flex',
-//   alignItems: 'center',
-//   gap: '$sm',
-//   fontWeight: 'bold',
-//   color: '$yellow',
-// })
-
-
 export function Home() {
   return (
     <Container>
-      <DashboardTitle>💻 Dashboard TI Diarias</DashboardTitle>
+      <DashboardTitle css={{ display: 'flex', alignItems: 'center', gap: '$sm' }}>
+        <Icons.code color="yellow" />
+        Dashboard TI Diarias
+      </DashboardTitle>
+
       <Tabs defaultValue="formulario">
         <StyledTabsList>
           <TabsTrigger value="formulario">
-            <TabLabel>📝 Formulario Tareas</TabLabel>
+            <TabLabel>
+              <Icons.edit color="yellow" />
+              Formulario Tareas
+            </TabLabel>
           </TabsTrigger>
+
           <TabsTrigger value="historial">
-            <TabLabel>📂 Historial</TabLabel>
+            <TabLabel>
+              <Icons.archive color="blue" />
+              Historial
+            </TabLabel>
           </TabsTrigger>
+
           <TabsTrigger value="estadisticas">
-            <TabLabel>📊 Estadísticas</TabLabel>
+            <TabLabel>
+              <Icons.chart color="purple" />
+              Estadísticas
+            </TabLabel>
           </TabsTrigger>
-          <TabsTrigger value="exportar">
-            <TabLabel>📄 Exportar</TabLabel>
-          </TabsTrigger>
+
+          {/* <TabsTrigger value="exportar">
+            <TabLabel>
+              <Icons.upload color="green" />
+              Exportar
+            </TabLabel>
+          </TabsTrigger> */}
         </StyledTabsList>
 
         <TabsContent value="formulario">
@@ -64,10 +76,11 @@ export function Home() {
         <TabsContent value="estadisticas">
           <StatsView />
         </TabsContent>
-        <TabsContent value="exportar">
+        {/* <TabsContent value="exportar">
           <ExportView />
-        </TabsContent>
+        </TabsContent> */}
       </Tabs>
+
       <FooterCard />
     </Container>
   )

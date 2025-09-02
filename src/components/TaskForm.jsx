@@ -7,10 +7,10 @@ import { styled } from '@/stitches.config'
 import { SubTitle } from '@/ui/SubTitle'
 import { Section } from '@/ui/Section'
 import { SectionTitle } from '@/ui/SectionTitle'
+import { Icons } from '@/ui/icons'
 
 const API_URL = 'http://localhost:8000/api/dailylog/'
 
-// 🧱 Contenedor de pantalla completa
 const FullWidthContainer = styled('div', {
   width: '95vw',
   minHeight: '100vh',
@@ -21,23 +21,6 @@ const FullWidthContainer = styled('div', {
   flexDirection: 'column',
   alignItems: 'center', 
 })
-
-// // 📦 Sección visual modular
-// const Section = styled('div', {
-//   border: '1px solid $blue',
-//   borderRadius: '$md',
-//   padding: '$md',
-//   marginBottom: '$lg',
-//   backgroundColor: '$surface',
-// })
-
-// 🏷️ Título de sección
-// const SectionTitle = styled('h3', {
-//   color: '$chartPurple',
-//   fontSize: '$lg',
-//   marginBottom: '$md',
-//   fontFamily: '$mono',
-// })
 
 const ButtonWrapper = styled('div', {
   display: 'flex',
@@ -118,7 +101,11 @@ export function TaskForm({ onSuccess }) {
           boxSizing: 'border-box',
         }}
       >
-        <SubTitle>📝 Registrar Tarea Diaria</SubTitle>
+        <SubTitle css={{ display: 'flex', alignItems: 'center', gap: '$sm' }}>
+          <Icons.edit color="red"/>
+          Registrar Tarea Diaria
+        </SubTitle>
+
 
         {/* 🧩 Datos de la tarea */}
         <Section accent="left" spacing="relaxed">

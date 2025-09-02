@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Card } from '@/ui/Card'
 import { Section } from '@/ui/Section'
 import { FullWidthContainer } from '@/ui/FullWidthContainer'
 import { Bar } from 'react-chartjs-2'
@@ -7,12 +6,13 @@ import { agruparPorFranja, topTecnologias } from '@/utils/stats'
 import { styled } from '@/stitches.config'
 import 'chart.js/auto'
 import { SectionTitle } from '@/ui/SectionTitle'
+import { Icons } from '@/ui/icons'
 
 const ChartWrapper = styled('div', {
   overflowY: 'auto',
-  paddingRight: '$sm',
+  paddingRight: '$md',
   width: '96%',
-  padding: '$lg',
+  padding: '$md',
 })
 
 const API_URL = 'http://localhost:8000/api/dailylog/'
@@ -48,12 +48,18 @@ export function StatsView() {
     <FullWidthContainer>
       <ChartWrapper>
         <Section accent="left">
-          <SectionTitle>📊 Horas por franja del día</SectionTitle>
+          <SectionTitle css={{ display: 'flex', alignItems: 'center', gap: '$sm', textTransform: 'uppercase' }}>
+            <Icons.chart color="cyan" size="sm"/>
+            Horas por franja del día
+          </SectionTitle>
           {barras ? <Bar data={barras} /> : <p>{error || 'Cargando...'}</p>}
         </Section>
 
         <Section accent="cyan" css={{ marginTop: '$xl' }}>
-          <SectionTitle>🧠 Top tecnologías</SectionTitle>
+          <SectionTitle css={{ display: 'flex', alignItems: 'center', gap: '$sm', textTransform: 'uppercase' }}>
+          <Icons.layers color="cyan" size="sm"/>
+          Top tecnologías
+        </SectionTitle>
           {tecnologias ? (
             <Bar data={tecnologias} options={{ indexAxis: 'y' }} />
           ) : (

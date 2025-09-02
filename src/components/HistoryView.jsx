@@ -5,7 +5,9 @@ import { Button } from '@/ui/Button'
 import { HistoryRow } from './HistoryRow'
 import { Pagination } from './Pagination'
 import { FullWidthContainer } from '@/ui/FullWidthContainer'
-import { ScrollSection } from '@/ui/ScrollSection'
+import { ButtonRow } from '@/ui/ButtonRow'
+import { SubTitle } from '@/ui/SubTitle'
+import { Icons } from '@/ui/icons'
 
 const API_URL = 'http://localhost:8000/api/dailylog/'
 
@@ -37,20 +39,24 @@ export function HistoryView() {
   return (
     <FullWidthContainer>
         <Card css={{ padding: '$lg', backgroundColor: '$background' }}>
-          <h2 style={{ color: '$textSecondary' }}>📂 Historial de tareas</h2>
+          <SubTitle css={{ display: 'flex', alignItems: 'center', gap: '$sm' }}>
+            <Icons.archive color="red"/>
+            Historial de tareas
+          </SubTitle>
 
           {/* Filtro */}
-          <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+          <ButtonRow>
             <Input
-              placeholder="Buscar por tecnología o descripción..."
+              placeholder="Buscar por tecnología"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Button variant="ghost" onClick={fetchLogs}>
+            <Button variant="primary" size="xs" onClick={fetchLogs}>
               Buscar
             </Button>
-          </div>
 
+          </ButtonRow>
+          
           {/* Tabla */}
           <div style={{ maxHeight: '400px', overflowY: 'auto', paddingRight: '8px' }}>
             {logs.map((log) => (

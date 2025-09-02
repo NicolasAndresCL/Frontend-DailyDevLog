@@ -11,7 +11,6 @@ export const Button = styled('button', {
   transition: 'background-color 0.2s ease',
   border: '1px solid $blue',         // 💠 línea azul tipo VSCode
 
-  
   variants: {
     variant: {
       primary: {
