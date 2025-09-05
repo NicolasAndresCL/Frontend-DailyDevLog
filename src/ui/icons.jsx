@@ -16,6 +16,7 @@ import {
   UploadIcon,
   LightningBoltIcon,
   LayersIcon,
+  Cross2Icon
 } from '@radix-ui/react-icons'
 
 // 🎨 Componente base con variantes visuales
@@ -67,4 +68,5 @@ export const Icons = {
   upload: styled(UploadIcon, IconBase),
   bolt: styled(LightningBoltIcon, IconBase),
   layers: styled(LayersIcon, IconBase),
+  close: styled(Cross2Icon, IconBase),
 }

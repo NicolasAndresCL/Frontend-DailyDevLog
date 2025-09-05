@@ -136,6 +136,17 @@ export function TaskForm({ onSuccess }) {
           <Icons.edit color="red"/>
           Registrar Tarea Diaria
         </SubTitle>
+        <Button
+          variant="ghost"
+          css={{ marginBottom: '$md' }}
+          onClick={() => {
+            localStorage.removeItem('accessToken')
+            localStorage.removeItem('refreshToken')
+            setIsAuthenticated(false)
+          }}
+        >
+          <Icons.close color="red" sixe="lg" /> Cerrar sesión
+        </Button>
 
         {/* 🧩 Datos de la tarea */}
         <Section accent="left" spacing="relaxed">
