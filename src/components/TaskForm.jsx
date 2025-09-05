@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Input } from '@/ui/Input'
 import { TextArea } from '@/ui/TextArea'
 import { Button } from '@/ui/Button'
@@ -8,6 +8,7 @@ import { SubTitle } from '@/ui/SubTitle'
 import { Section } from '@/ui/Section'
 import { SectionTitle } from '@/ui/SectionTitle'
 import { Icons } from '@/ui/icons'
+import { LoginForm } from '@/components/LoginForm'
 
 const API_URL = 'http://localhost:8000/api/dailylog/'
 
@@ -29,6 +30,7 @@ const ButtonWrapper = styled('div', {
 })
 
 export function TaskForm({ onSuccess }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [form, setForm] = useState({
     nombre_tarea: '',
     horas: 0,
@@ -43,14 +45,28 @@ export function TaskForm({ onSuccess }) {
     imagen_2: '',
     imagen_3: '',
   })
+  const [authError, setAuthError] = useState(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken')
+    if (token) setIsAuthenticated(true)
+  }, [])
 
   const handleChange = (field) => (e) => {
     setForm({ ...form, [field]: e.target.value })
   }
 
   const handleSubmit = async () => {
+    setAuthError(null)
+
     if (!form.nombre_tarea || !form.descripcion || form.horas <= 0) {
       alert('Los campos "Nombre de tarea", "Horas" y "Descripción" son obligatorios.')
+      return
+    }
+
+    const token = localStorage.getItem('accessToken')
+    if (!token) {
+      setAuthError('No estás autenticado. Por favor inicia sesión.')
       return
     }
 
@@ -62,8 +78,18 @@ export function TaskForm({ onSuccess }) {
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         body: data,
       })
+
+      if (res.status === 401) {
+        setAuthError('Token inválido o expirado. Por favor vuelve a iniciar sesión.')
+        setIsAuthenticated(false)
+        return
+      }
+
       if (res.status === 201) {
         alert('Tarea registrada correctamente.')
         setForm({
@@ -90,6 +116,11 @@ export function TaskForm({ onSuccess }) {
     }
   }
 
+  // 🔐 Si no está autenticado → mostrar login en esta sección
+  if (!isAuthenticated) {
+    return <LoginForm onLogin={() => setIsAuthenticated(true)} />
+  }
+
   return (
     <FullWidthContainer>
       <Card
@@ -105,7 +136,6 @@ export function TaskForm({ onSuccess }) {
           <Icons.edit color="red"/>
           Registrar Tarea Diaria
         </SubTitle>
-
 
         {/* 🧩 Datos de la tarea */}
         <Section accent="left" spacing="relaxed">
@@ -134,7 +164,12 @@ export function TaskForm({ onSuccess }) {
           <Input label="Imagen 3" type="file" onChange={(e) => setForm({ ...form, imagen_3: e.target.files[0] })} />
         </Section>
 
-        
+        {authError && (
+          <p style={{ color: '#f87171', marginTop: '12px', fontWeight: 'bold' }}>
+            {authError}
+          </p>
+        )}
+
         <ButtonWrapper>
           <Button variant="primary" onClick={handleSubmit}>
             Guardar Tarea

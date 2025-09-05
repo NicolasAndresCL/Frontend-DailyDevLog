@@ -1,18 +1,19 @@
-📘 README.md — DailyDevLog Frontend
 markdown
 # 🧠 DailyDevLog — Frontend Técnico
 
-Frontend modular para registrar, visualizar y exportar tareas diarias de desarrollo. Diseñado con estética tipo VSCode Dark+, arquitectura escalable y componentes reutilizables.
+Frontend modular para **registrar, visualizar y exportar tareas diarias de desarrollo**, diseñado con estética **VSCode Dark+**, arquitectura escalable y componentes reutilizables.  
+Optimizado para **accesibilidad, coherencia visual** y **branding técnico**.
 
 ---
 
 ## 🚀 Features
 
-- Registro de tareas con campos técnicos
-- Historial visual con paginación y exportación Markdown
-- Estadísticas por franja horaria y tecnologías más usadas
-- Vista previa de archivos Markdown
-- Interfaz visual con tokens semánticos y layout profesional
+- **Registro de tareas** con campos técnicos y adjuntos
+- **Historial visual** con paginación y exportación a Markdown
+- **Estadísticas dinámicas** por franja horaria y tecnologías más usadas
+- **Vista previa** de archivos Markdown
+- **Interfaz técnica** con tokens semánticos, tipografía monoespaciada y layout profesional
+- **Protección granular**: solo usuarios autenticados pueden registrar tareas
 
 ---
 
@@ -24,24 +25,30 @@ Código
 
 ---
 
-## 🎨 Technologies Used
+## 🎨 Tecnologías Utilizadas
 
-React, Radix Themes, Stitches, Vite, Chart.js, Markdown, JavaScript, JSX, CSS
+- **Frontend Core:** React, JSX, JavaScript, CSS
+- **UI & Theming:** Radix UI, Stitches, tokens semánticos, tipografía técnica
+- **Build & Dev:** Vite
+- **Visualización de datos:** Chart.js
+- **Documentación & Exportación:** Markdown
+- **Control de versiones:** Git
+- **Integración Backend:** Django REST Framework + JWT (solo para creación de tareas)
 
 ---
 
 ## 📦 Setup
 
 ```bash
-# Install dependencies
+# Instalar dependencias
 npm install
 
-# Run development server
+# Ejecutar servidor de desarrollo
 npm run dev
-```
 
-## 📈 Avances técnicos
-✅ Migración visual completa de TailwindCSS a Radix Themes + Stitches
+```
+## 📈 Avances Técnicos
+✅ Migración visual completa de TailwindCSS a Radix UI + Stitches
 
 ✅ Refactor modular con tokens semánticos y tipografía técnica
 
@@ -53,9 +60,11 @@ npm run dev
 
 ✅ Layout flexible con FullWidthContainer y Section
 
+✅ Integración de autenticación JWT para proteger creación de tareas
+
 ## 📄 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+Este proyecto está licenciado bajo MIT License. Consulta el archivo LICENSE para más detalles.
 
-## 👨‍💻 Author
-Nicolás Andrés Cano Leal Frontend & Backend Developer 📍 Rancagua, Chile 🔗 LinkedIn 🔗 GitHub
-
+## 👨‍💻 Autor
+Nicolás Andrés Cano Leal Frontend & Backend Developer 📍 Rancagua, Chile 
+🔗 [nicolasandrescl.pythonanywhere.com](https://nicolasandrescl.pythonanywhere.com)

@@ -2,7 +2,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs'
 import { TaskForm } from '@/components/TaskForm'
 import { HistoryView } from '@/components/HistoryView'
 import { StatsView } from '@/components/StatsView'
-import { ExportView } from '@/components/ExportView'
+// import { ExportView } from '@/components/ExportView'
 import { styled } from '@/stitches.config'
 import { DashboardTitle } from '@/ui/DashboardTitle'
 import { TabLabel } from '@/ui/TabLabel'
@@ -58,13 +58,6 @@ export function Home() {
               Estadísticas
             </TabLabel>
           </TabsTrigger>
-
-          {/* <TabsTrigger value="exportar">
-            <TabLabel>
-              <Icons.upload color="green" />
-              Exportar
-            </TabLabel>
-          </TabsTrigger> */}
         </StyledTabsList>
 
         <TabsContent value="formulario">
@@ -76,9 +69,6 @@ export function Home() {
         <TabsContent value="estadisticas">
           <StatsView />
         </TabsContent>
-        {/* <TabsContent value="exportar">
-          <ExportView />
-        </TabsContent> */}
       </Tabs>
 
       <FooterCard />
