@@ -1,7 +1,7 @@
 import { Button } from '@/ui/Button'
 
 export function Pagination({ page, setPage, total }) {
-  const totalPages = Math.ceil(total / 10) // asumiendo 10 por página
+  const totalPages = Math.ceil(total / 10)
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '24px' }}>

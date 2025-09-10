@@ -1,6 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs'
 import { TaskForm } from '@/components/TaskForm'
-import { HistoryView } from '@/components/HistoryView'
+import { HistoryView } from '@/views/HistoryView'
 import { StatsView } from '@/components/StatsView'
 // import { ExportView } from '@/components/ExportView'
 import { styled } from '@/stitches.config'
