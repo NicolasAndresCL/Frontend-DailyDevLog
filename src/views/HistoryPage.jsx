@@ -4,7 +4,7 @@ import { HistoryRow } from './HistoryRow'
 import { Pagination } from '@/ui/Pagination'
 import { FullWidthContainer } from '@/ui/FullWidthContainer'
 
-const API_URL = 'http://localhost:8000/api/dailylog/'
+const API_URL = import.meta.env.VITE_API_URL
 
 export function HistoryPage() {
   const [logs, setLogs] = useState([])

@@ -1,4 +1,3 @@
-// src/views/HistoryRow.jsx
 import { useState } from 'react'
 import { styled } from '@/stitches.config'
 import { Card } from '@/ui/Card'
@@ -25,7 +24,8 @@ const FullRow = styled('div', {
   gridColumn: '1 / -1',
 })
 
-const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_URL || 'http://localhost:8000'
+const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_URL
+const API_URL = import.meta.env.VITE_API_URL
 
 export function HistoryRow({ log, onLinkUpdated }) {
   const [editing, setEditing] = useState(false)
@@ -39,8 +39,8 @@ export function HistoryRow({ log, onLinkUpdated }) {
 
   const save = async () => {
     const token = localStorage.getItem('accessToken')
-    await fetch(`http://localhost:8000/api/dailylog/${log.id}/`, {
-      method: 'PATCH',
+    await fetch(`${API_URL}${log.id}/`, {
+            method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,

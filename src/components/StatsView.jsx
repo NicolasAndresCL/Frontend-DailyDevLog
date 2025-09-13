@@ -15,7 +15,7 @@ const ChartWrapper = styled('div', {
   padding: '$md',
 })
 
-const API_URL = 'http://localhost:8000/api/dailylog/'
+const API_URL = import.meta.env.VITE_API_URL
 
 export function StatsView() {
   const [barras, setBarras] = useState(null)

@@ -7,7 +7,7 @@ import { styled } from '@/stitches.config'
 import { SubTitle } from '@/ui/SubTitle'
 import { Icons } from '@/ui/icons'
 
-const API_URL = 'http://localhost:8000/api/token/'
+const TOKEN_URL = import.meta.env.VITE_TOKEN_URL
 
 const Container = styled('div', {
   width: '100vw',              // ocupar todo el ancho de la ventana

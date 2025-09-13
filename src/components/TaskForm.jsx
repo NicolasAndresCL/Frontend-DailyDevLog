@@ -10,7 +10,7 @@ import { SectionTitle } from '@/ui/SectionTitle'
 import { Icons } from '@/ui/icons'
 import { LoginForm } from '@/components/LoginForm'
 
-const API_URL = 'http://localhost:8000/api/dailylog/'
+const API_URL = import.meta.env.VITE_API_URL
 
 const FullWidthContainer = styled('div', {
   width: '95vw',
